@@ -5,15 +5,19 @@ import { Add } from '@material-ui/icons';
 import SidebarChannel from './SidebarChannel'
 import { Avatar } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectUser } from './features/userSlice';
+import { selectHomepage, selectUser } from './features/userSlice';
 import db, { auth } from './firebaseApp';
+import {homepage} from './features/userSlice'; 
 // import prompt from 'electron-prompt';
 
 
 function Sidebar() {
 
+    const dispatch = useDispatch();
     const user = useSelector(selectUser);
+    const home = useSelector(selectHomepage);
     const [channels, setChannels] = useState([]);
+    // const [homepage, setHomepage] = useState(true);
     const smalltalk = require('smalltalk');
 
     
@@ -40,11 +44,35 @@ function Sidebar() {
     }
 
     return (
+        <>
+        <div className='sidebar_servers'>
+                <div className='sidebar_homepage' onClick={() => dispatch(homepage({
+                    homepage: true,
+                }))}>
+                    HOME
+                </div>
+                <div className='sidebar_serverList' onClick={() => dispatch(homepage({
+                    homepage: false,
+                }))}>
+                    SERVER
+                    SD
+                </div>
+
+            </div>
+        {home ? (
+            <div>
+                HELLO
+            </div>
+        
+        ) : (
+
         <div className='sidebar'>
             <div className="sidebar_top">
                 <h3>Interact!</h3>
                 <ExpandMore />
             </div>
+
+            
 
             <div className='sidebar_channels'>
                 <div className="sidebar_channelsHeader">
@@ -61,7 +89,7 @@ function Sidebar() {
 
                 </div>
 
-                <div className='.sidebar_channelsList'>
+                <div className='sidebar_channelsList'>
 
                     {channels.map(({id, channel}) => (
                     <SidebarChannel key={id} id={id} channelName={channel.channelName}/>
@@ -100,6 +128,8 @@ function Sidebar() {
                 </div>
             </div>
         </div>
+        )}
+        </>
     )
 }
 

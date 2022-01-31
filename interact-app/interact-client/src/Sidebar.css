@@ -1,7 +1,7 @@
 .sidebar {
     display: flex;
     flex-direction: column;
-    flex: 0.25;
+    flex: 0.20;
     height: 100vh;
     background-color: #2d2d2d;
 }
@@ -17,8 +17,32 @@
     
 }
 
-.sidebar_channels {
+.sidebar_homepage {
+    border-bottom: 3px solid #4d4d4d;
+    background-color: blue;
+    height: 80px;
+}
+
+.sidebar_serverList {    
+    display: inline-block;
     flex: 1;
+    overflow:hidden;
+
+}
+
+.sidebar_servers {
+    flex: 0.05;
+    background-color: red;
+}
+
+
+
+.sidebar_channels {
+    display: inline-block;
+    vertical-align: top;
+    align: top;
+    flex: 1;
+
 }
 
 .sidebar_addChannel {
