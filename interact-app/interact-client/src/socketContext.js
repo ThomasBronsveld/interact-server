@@ -4,7 +4,7 @@ import Peer from 'simple-peer';
 
 const SocketContext = createContext();
 
-const socket = io('interact-app-c67cb.firebaseapp.com:5000');
+const socket = io('localhost:5000');
 
 const ContextProvider = ({ children }) => {
     const [callAccepted, setCallAccepted] = useState(false);
