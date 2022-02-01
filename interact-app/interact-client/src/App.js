@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import Sidebar from './Sidebar';
 import Chat from './Chat';
-import { selectUser, selectHomepage} from './features/userSlice';
+import { selectUser, selectHomepage } from './features/userSlice';
 import Login from './Login';
 import { auth } from './firebaseApp';
-import {login, logout} from './features/userSlice'; 
+import { login, logout } from './features/userSlice';
 import { Typography, AppBar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { ContextProvider } from './socketContext';
 
 
 import VideoPlayer from './components/Videoplayer';
@@ -48,16 +49,16 @@ function App() {
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
 
-    console.log(authUser)
-    if (authUser) {
-      dispatch(login({
+      console.log(authUser)
+      if (authUser) {
+        dispatch(login({
           uid: authUser.uid,
           photo: authUser.photoURL,
           email: authUser.email,
           displayName: authUser.displayName
         })
-        
-      );
+
+        );
       } else {
         dispatch(logout())
       }
@@ -69,31 +70,33 @@ function App() {
     <div className="app">
       {user ? (
         <>
-        <Sidebar />
+          <Sidebar />
 
-        {!home ? (
-          <>
-          <Chat /> </>
-        ) : (
-          <div className={classes.wrapper}>
-            <AppBar className={classes.appBar} position='static' color="inherit">
+          {!home ? (
+            <>
+              <Chat /> </>
+          ) : (
+            <div className={classes.wrapper}>
+              <AppBar className={classes.appBar} position='static' color="inherit">
                 <Typography variant="h2" align="center">
-                    Video Chat
+                  Video Chat
                 </Typography>
-                </AppBar>
+              </AppBar>
+              <ContextProvider>
                 <VideoPlayer />
                 <Options>
-                    <Notifications/>
+                  <Notifications />
                 </Options>
-        </div>
-        )}
-        
+              </ContextProvider>
+            </div>
+          )}
+
         </>
 
       ) : (
         <Login />
       )
-    }
+      }
     </div>
   );
 }
