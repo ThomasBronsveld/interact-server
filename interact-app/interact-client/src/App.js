@@ -82,11 +82,11 @@ function App() {
                   Video Chat
                 </Typography>
               </AppBar>
+                <Options>
               <ContextProvider>
                 <VideoPlayer />
-              </ContextProvider>
-                <Options>
                   <Notifications />
+              </ContextProvider>
                 </Options>
             </div>
           )}
