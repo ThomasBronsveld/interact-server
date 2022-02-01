@@ -84,10 +84,10 @@ function App() {
               </AppBar>
               <ContextProvider>
                 <VideoPlayer />
+              </ContextProvider>
                 <Options>
                   <Notifications />
                 </Options>
-              </ContextProvider>
             </div>
           )}
 
