@@ -60,7 +60,6 @@ function Chat() {
             </div>
 
             <div className="chat_input">
-                <AddCircle fontSize="large"/>
                 <form>
                     <input value={input} onChange={(e) => setInput(e.target.value)} disabled={!channelId} placeholder={`Message #${channelName}`} />
                     <button className='chat_inputButton' type="submit" disabled={!channelId} onClick={sendMessage}>
@@ -69,8 +68,6 @@ function Chat() {
                 </form>
 
                 <div className='chat_inputIcons'>
-                    <CardGiftcard fontSize="large" />
-                    <Gif fontSize="large" />
                     <EmojiEmotions fontSize="large" />
                 </div>
 

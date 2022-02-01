@@ -55,13 +55,11 @@ function Sidebar() {
                     homepage: false,
                 }))}>
                     SERVER
-                    SD
                 </div>
 
             </div>
         {home ? (
             <div>
-                HELLO
             </div>
         
         ) : (
@@ -98,21 +96,6 @@ function Sidebar() {
                 </div>
             </div>
 
-            <div className="sidebar_voice">
-                <SignalCellularAlt
-                    className="sidebar_voiceIcon"
-                    fontSize='large'
-                />
-                <div className="sidebar_voiceInfo">
-                    <h3>Voice Connected</h3>
-                    <p>Stream</p>
-                </div>
-
-                <div className='sidebar_voiceIcons'>
-                    <InfoOutlined />
-                    <Call />
-                </div>
-            </div>
 
             <div className='sidebar_profile' >
             <Avatar  src={user.photo} onClick={() => auth.signOut()}/>

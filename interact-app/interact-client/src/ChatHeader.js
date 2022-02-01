@@ -15,15 +15,11 @@ function ChatHeader( { channelName }) {
 
             <div className='chatHeader_right'>
                 <Notifications />
-                <EditLocationRounded />
-                <PeopleAltRounded />
 
                 <div className='chatHeader_search'>
                     <input placeholder='Search' />
                     <SearchRounded />
                 </div>
-                <SendRounded />
-                <HelpRounded />
             </div>
         </div>
     )

@@ -3,8 +3,8 @@ body {
     linear-gradient(
       rgba(0, 0, 0, 0.3), 
       rgba(0, 0, 0, 0.3)
-    ),
-    url(https://i.pinimg.com/originals/8f/14/57/8f14578ef69a4c53352955d1e072eda6.png);
+    ),;
+    background-color: #3a3a3a;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
